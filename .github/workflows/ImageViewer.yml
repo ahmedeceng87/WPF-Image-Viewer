@@ -1,4 +1,4 @@
-name: Image Viewer Wpf
+name: Image Viewer Wpf Continuous Integration
 
 on:
   push:
@@ -40,9 +40,10 @@ jobs:
       
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild $env:ImageViewer.sln /t:Restore /p:Configuration=$env:Configuration
+      run: msbuild $env:ImageViewer.sln /t:Restore /p:Configuration=$env:Configuration /p:RuntimeIdentifier=$env:RuntimeIdentifier
       env:
         Configuration: ${{ matrix.configuration }}
+        RuntimeIdentifier: win-${{ matrix.targetplatform }}
         
     # Decode the Base64 encoded Pfx
     - name: Decode the Pfx
@@ -58,7 +59,7 @@ jobs:
       env:
         Appx_Bundle: Never
         TargetPlatform: ${{ matrix.targetplatform }}
-        Appx_Package_Build_Mode: StoreUpload
+        Appx_Package_Build_Mode: SideloadOnly
         Configuration: ${{ matrix.configuration }}
         
    # Remove the pfx
@@ -69,7 +70,7 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: MSIX Package
+        name: Image Viewer Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages   
 
 
