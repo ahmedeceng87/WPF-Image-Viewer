@@ -3,37 +3,54 @@ using System.Windows.Input;
 
 namespace ImageViewer.Common
 {
-    public class RelayCommand : ICommand
+    public class RelayCommand<T> : ICommand
     {
-        private readonly Action<object> _execute;
-        private readonly Predicate<object> _canExecute;
+        #region Fields
 
-        public event EventHandler CanExecuteChanged
-        {
-            add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value;
-        }
+        private readonly Predicate<T> _canExecute;
+        private readonly Action<T> _execute;
 
-        public RelayCommand(Action<object> execute)
-            : this(execute, null)
+        #endregion
+
+        #region Constructors
+
+        public RelayCommand(Action<T> execute): this(execute, null)
         {
             
         }
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        public RelayCommand(Action execute) : this(o => execute())
+        {
+        }
+
+        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
 
+        #endregion
+
+        #region ICommand Members
+
         public bool CanExecute(object parameter)
         {
-            return this._canExecute == null || this._canExecute(parameter);
+            return _canExecute == null
+                   ||
+                   _canExecute((T)parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
         public void Execute(object parameter)
         {
-            this._execute?.Invoke(parameter);
+            _execute((T)parameter);
         }
+
+        #endregion
     }
 }

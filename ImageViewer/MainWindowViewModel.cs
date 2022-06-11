@@ -10,20 +10,42 @@ namespace ImageViewer
     {
         #region Private Fields
 
-        private RelayCommand _searchImagesByKeywordCmd;
+        private RelayCommand<string> _searchImagesByKeywordCmd;
+        private string _imagesForKeywordLabel;
+
+        #endregion
+
+        #region Constructors
+
+        public MainWindowViewModel()
+        {
+            ImagesInfo = new ObservableCollection<IImageInfo>();
+        }
 
         #endregion
 
         #region Properties
 
-        public ObservableCollection<IImageInfo> ImagesInfo { get; private set; }
+        public ObservableCollection<IImageInfo> ImagesInfo { get; }
 
-        public string ImagesForKeywordLabel { get; private set; }
+        public string ImagesForKeywordLabel
+        {
+            get
+            {
+                return _imagesForKeywordLabel;
+            }
+
+            set
+            {
+                _imagesForKeywordLabel = value;
+                RaisePropertyChanged(() => ImagesForKeywordLabel);
+            }
+        }
 
         #endregion
 
         #region Relay Commands
-        public RelayCommand SearchImagesByKeywordCmd => _searchImagesByKeywordCmd ?? (_searchImagesByKeywordCmd = new RelayCommand(SearchImagesByKeywordCommandHandler));
+        public RelayCommand<string> SearchImagesByKeywordCmd => _searchImagesByKeywordCmd ?? (_searchImagesByKeywordCmd = new RelayCommand<string>(SearchImagesByKeywordCommandHandler));
 
         #endregion
 
@@ -34,17 +56,16 @@ namespace ImageViewer
             {
                 return;
             }
+
+            ImagesInfo.Clear();
+            ImagesForKeywordLabel = $"Images for {keyword}:";
+
             IImageProvider imageProvider = ImageProviderFactory.GetImageProvider(ImageProviderType.Flickr);
             IEnumerable<IImageInfo> imagesInfo = imageProvider.GetImagesInfoByKeyword((string)keyword);
-            ImagesInfo = new ObservableCollection<IImageInfo>(imagesInfo);
-            ImagesForKeywordLabel = $"Images for {keyword}";
-            NotifyChanges();
-        }
-
-        void NotifyChanges()
-        {
-            RaisePropertyChanged(() => ImagesInfo);
-            RaisePropertyChanged(() => ImagesForKeywordLabel);
+            foreach (IImageInfo imageInfo in imagesInfo)
+            {
+                ImagesInfo.Add(imageInfo);
+            }
         }
 
 
