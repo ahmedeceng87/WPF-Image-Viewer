@@ -15,9 +15,7 @@ Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "ImageViewerPackager", "Imag
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI", "CI", "{D8AB7E8E-1B4D-47DE-AB24-B69F4C7F3A90}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
 		.github\workflows\ImageViewerCI.yml = .github\workflows\ImageViewerCI.yml
-		version.json = version.json
 	EndProjectSection
 EndProject
 Global
