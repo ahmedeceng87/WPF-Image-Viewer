@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProvider", "ImageProvi
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "ImageViewerPackager", "ImageViewerPackager\ImageViewerPackager.wapproj", "{950B89A6-EB63-4DFC-93A1-2C9F3A3862CB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI", "CI", "{D8AB7E8E-1B4D-47DE-AB24-B69F4C7F3A90}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ImageViewer.yml = .github\workflows\ImageViewer.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
