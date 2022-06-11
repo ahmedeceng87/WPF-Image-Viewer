@@ -125,3 +125,8 @@ Infrastructure/obj/x64/Debug/Infrastructure.csproj.CoreCompileInputs.cache
 Infrastructure/obj/x64/Debug/Infrastructure.csproj.FileListAbsolute.txt
 Infrastructure/obj/x64/Debug/Infrastructure.dll
 Infrastructure/obj/x64/Debug/Infrastructure.pdb
+ImageViewer/obj/ImageViewer.csproj.nuget.dgspec.json
+ImageViewer/obj/ImageViewer.csproj.nuget.g.props
+ImageViewer/obj/ImageViewer.csproj.nuget.g.targets
+ImageViewer/obj/project.assets.json
+ImageViewer/obj/project.nuget.cache
