@@ -1,9 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Flicker;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Rhino.Mocks;
 using Infrastructure;
 
@@ -12,13 +10,6 @@ namespace Fliicker.Unit.Tests
     [TestClass()]
     public class FlickerImageProviderTests
     {
-        [TestMethod()]
-        public void GetInstanceTest()
-        {
-            
-            //Assert.Fail();
-        }
-
         [TestMethod()]
         [DataRow("nature")]
         public void GetImagesInfoByKeywordTest(string keyword)

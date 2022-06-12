@@ -59,7 +59,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="FlickerImageInfo.cs" />
+    <Compile Include="TestImageInfo.cs" />
     <Compile Include="FlickerImageProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

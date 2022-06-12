@@ -11,9 +11,9 @@ namespace Flicker
         {
             flickerImageFeed = imageFeed;
         }
-        public static IImageProvider GetInstance()
+        public static IImageProvider GetInstance(IImageFeed imageFeed)
         {
-            return new FlickerImageProvider(new FlickerImageFeed());
+            return new FlickerImageProvider(imageFeed);
         }
         public IEnumerable<IImageInfo> GetImagesInfoByKeyword(string keyword)
         {           

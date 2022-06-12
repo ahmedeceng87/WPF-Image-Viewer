@@ -31,9 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IImageFeed.cs" />
-    <Compile Include="IImageProvider.cs" />
-    <Compile Include="IImageInfo.cs" />
+    <Compile Include="Interfaces\IImageFeed.cs" />
+    <Compile Include="Interfaces\IImageProvider.cs" />
+    <Compile Include="Interfaces\IImageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

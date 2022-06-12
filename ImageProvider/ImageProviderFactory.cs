@@ -11,7 +11,7 @@ namespace ImageProvider
             switch (imageProviderType)
             {
                 case ImageProviderType.Flickr:
-                    return FlickerImageProvider.GetInstance();
+                    return FlickerImageProvider.GetInstance(new FlickerImageFeed());
                 default:
                     throw new ArgumentOutOfRangeException(nameof(imageProviderType), imageProviderType, null);
             }
