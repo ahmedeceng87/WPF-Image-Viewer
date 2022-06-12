@@ -21,6 +21,7 @@ jobs:
       Wap_Project_Directory: ImageViewerPackager
       Wap_Project_Path: ImageViewerPackager\ImageViewerPackager.wapproj
       SigningCertificate: ImageViewerPackager_TemporaryKey.pfx
+      Test_Project_Path: ImageViewer\Fliicker.Unit.Tests
 
     steps:
     - name: Checkout
@@ -37,6 +38,10 @@ jobs:
     # Setup MSBuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
+      
+    # Test
+    - name: Execute Unit Tests
+      run: dotnet test $env:Test_Project_Path
       
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
