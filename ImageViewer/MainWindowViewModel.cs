@@ -50,9 +50,9 @@ namespace ImageViewer
         #endregion
 
         #region Private Methods
-        void SearchImagesByKeywordCommandHandler(object keyword)
+        void SearchImagesByKeywordCommandHandler(string keyword)
         {
-            if (string.IsNullOrEmpty(keyword as string))
+            if (string.IsNullOrEmpty(keyword))
             {
                 return;
             }
@@ -61,7 +61,7 @@ namespace ImageViewer
             ImagesForKeywordLabel = $"Images for {keyword}";
 
             IImageProvider imageProvider = ImageProviderFactory.GetImageProvider(ImageProviderType.Flickr);
-            IEnumerable<IImageInfo> imagesInfo = imageProvider.GetImagesInfoByKeyword((string)keyword);
+            IEnumerable<IImageInfo> imagesInfo = imageProvider.GetImagesInfoByKeyword(keyword);
             foreach (IImageInfo imageInfo in imagesInfo)
             {
                 ImagesInfo.Add(imageInfo);
