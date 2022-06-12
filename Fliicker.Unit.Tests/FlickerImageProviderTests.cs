@@ -34,7 +34,6 @@ namespace Fliicker.Unit.Tests
                                           &&
                                           img.ImageLink == $"www.testlink.{keyword}1.jpg")
                 , "Expected image info is not present in returned data");
-            Assert.Fail();
         }
     }
 }
