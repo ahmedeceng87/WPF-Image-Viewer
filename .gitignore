@@ -130,3 +130,5 @@ ImageViewer/obj/ImageViewer.csproj.nuget.g.props
 ImageViewer/obj/ImageViewer.csproj.nuget.g.targets
 ImageViewer/obj/project.assets.json
 ImageViewer/obj/project.nuget.cache
+.vs/ImageViewer/v16/TestStore/0/000.testlog
+.vs/ImageViewer/v16/TestStore/0/testlog.manifest
