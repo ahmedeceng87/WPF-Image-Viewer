@@ -21,7 +21,7 @@ jobs:
       Wap_Project_Directory: ImageViewerPackager
       Wap_Project_Path: ImageViewerPackager\ImageViewerPackager.wapproj
       SigningCertificate: ImageViewerPackager_TemporaryKey.pfx
-      Test_Project_Path: ImageViewer\Fliicker.Unit.Tests
+      Test_Project_Path: ImageViewer\Fliicker.Unit.Tests.csproj
 
     steps:
     - name: Checkout
