@@ -60,7 +60,7 @@ namespace ImageViewer
             ImagesInfo.Clear();
             ImagesForKeywordLabel = $"Images for {keyword}";
 
-            IImageProvider imageProvider = ImageProviderFactory.GetImageProvider(ImageProviderType.Flickr);
+            IImageProvider imageProvider = new ImageProviderFactory().GetImageProvider(ImageProviderType.Flickr);
             IEnumerable<IImageInfo> imagesInfo = imageProvider.GetImagesInfoByKeyword(keyword);
             foreach (IImageInfo imageInfo in imagesInfo)
             {

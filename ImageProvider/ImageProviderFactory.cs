@@ -4,17 +4,23 @@ using Infrastructure;
 
 namespace ImageProvider
 {
-    public static class ImageProviderFactory
+    public class ImageProviderFactory
     {
-        public static IImageProvider GetImageProvider(ImageProviderType imageProviderType)
+        public IImageProvider GetImageProvider(ImageProviderType imageProviderType)
         {
             switch (imageProviderType)
             {
                 case ImageProviderType.Flickr:
-                    return FlickerImageProvider.GetInstance(new FlickerImageFeed());
+                    return GetFlickerImageProvider();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(imageProviderType), imageProviderType, null);
             }
+        }
+
+        private IImageProvider GetFlickerImageProvider()
+        {
+            var imageFeed = new FlickerImageFeed();
+            return new FlickerImageProvider(imageFeed);
         }
     }
 }

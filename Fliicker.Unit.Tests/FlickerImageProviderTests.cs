@@ -28,7 +28,7 @@ namespace Fliicker.Unit.Tests
             var flickerImageProvider = new FlickerImageProvider(imageFeed);
 
             // Act
-            var data = ((IImageProvider)flickerImageProvider).GetImagesInfoByKeyword(keyword);
+            var data = flickerImageProvider.GetImagesInfoByKeyword(keyword);
 
             // Assert 
             Assert.IsNotNull(data, "No added data returned");
@@ -36,6 +36,7 @@ namespace Fliicker.Unit.Tests
                                           &&
                                           img.ImageLink == $"www.testlink.{keyword}1.jpg")
                 , "Expected image info is not present in returned data");
+            Assert.Fail();
         }
     }
 }
