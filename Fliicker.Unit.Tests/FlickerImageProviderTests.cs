@@ -1,17 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Flicker;
+﻿using Flicker;
 using System.Collections.Generic;
 using System.Linq;
 using Rhino.Mocks;
 using Infrastructure;
+using NUnit.Framework;
 
 namespace Fliicker.Unit.Tests
 {
-    [TestClass()]
     public class FlickerImageProviderTests
     {
-        [TestMethod()]
-        [DataRow("nature")]
+        [TestCase("nature")]
         public void GetImagesInfoByKeywordTest(string keyword)
         {
             // Arrange
