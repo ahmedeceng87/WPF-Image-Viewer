@@ -5,7 +5,7 @@ using Infrastructure;
 
 namespace Flicker
 {
-    public class FlickerImageFeed
+    public class FlickerImageFeed : IImageFeed
     {
         private const string FlickerPublicPhotosApi = "https://www.flickr.com/services/feeds/photos_public.gne/";
         private const string EntryElementName = "entry";

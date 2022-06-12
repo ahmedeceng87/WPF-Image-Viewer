@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IImageFeed.cs" />
     <Compile Include="IImageProvider.cs" />
     <Compile Include="IImageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

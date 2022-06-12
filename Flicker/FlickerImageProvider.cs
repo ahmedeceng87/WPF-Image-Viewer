@@ -5,13 +5,18 @@ namespace Flicker
 {
     public class FlickerImageProvider : IImageProvider
     {
-        public static FlickerImageProvider GetInstance()
+        IImageFeed flickerImageFeed;
+
+        public FlickerImageProvider(IImageFeed imageFeed)
         {
-            return new FlickerImageProvider();
+            flickerImageFeed = imageFeed;
+        }
+        public static IImageProvider GetInstance()
+        {
+            return new FlickerImageProvider(new FlickerImageFeed());
         }
         public IEnumerable<IImageInfo> GetImagesInfoByKeyword(string keyword)
-        {
-            var flickerImageFeed = new FlickerImageFeed();
+        {           
             return flickerImageFeed.LoadImages(keyword);
         }
     }
