@@ -1,4 +1,4 @@
-name: Image Viewer Wpf Continuous Integration
+name: Image Viewer Wpf Continuous Integration Pipeline
 
 on:
   push:
