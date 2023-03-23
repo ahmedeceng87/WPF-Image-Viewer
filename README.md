@@ -9,3 +9,4 @@ Steps:
   - Display the list of photos in a list. Each item in the list should display the Title of the photo.
   - CICD engine to build and generate installer.
   - Testability – unit tests
+  installer will be uploaded as artifacts
